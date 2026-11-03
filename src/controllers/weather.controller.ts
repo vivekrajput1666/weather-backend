@@ -33,10 +33,10 @@ res.json({
   data: weather,
 });
 
-} catch (error) {
-res.status(500).json({
-success: false,
-message: "Failed to fetch weather data.",
-});
-}
-};
+} catch (error: any) {
+  console.error("Weather error:", error.message, error.code, error.response?.status);
+  res.status(500).json({
+    success: false,
+    message: "Failed to fetch weather data.",
+  });
+  }}
