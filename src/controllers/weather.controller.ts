@@ -34,9 +34,10 @@ res.json({
 });
 
 } catch (error: any) {
-  console.error("Weather error:", error.message, error.code, error.response?.status);
+  console.error("Weather error:", error.message);
   res.status(500).json({
     success: false,
     message: "Failed to fetch weather data.",
+    debug: error.message,
   });
   }}
